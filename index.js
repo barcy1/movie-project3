@@ -33,6 +33,7 @@ document.addEventListener('click',(event) =>{
         localStorage.setItem('watchlist',JSON.stringify(watchList));// adding the updated watchlist moevie array to the locaStorage.
                                          // and saving it there so even if the watchList array get intiated it wont effect the local storage.
                                          //HERE AND ON THE MINUS EVENT IS THE ONLY PLACES THE LOCAL STORAGE GETS UPDATE.
+        
     }
 
     if(event.target.dataset.minus){// if the dataset property is 'minus' (after the data-)  
@@ -121,14 +122,14 @@ const getButton= (movie, plus) =>{ // intiate the button to a plus sign
     if(plus){        
          return(
             `<a  class='containerr'>
-                <img data-plus='${movie.imdbID}' src='./icons/plus-icon.png'>
+                <img class='plus' data-plus='${movie.imdbID}' src='./icons/plus-icon.png'>
                 <p data-plus='${movie.imdbID}'>add to watchlist </p>
             </a>`
         ) 
     }
     else{
         return(`<a class='containerr' >
-            <img data-minus='${movie.imdbID}' src='./icons/minus-icon.png'>
+            <img class='minus' data-minus='${movie.imdbID}' src='./icons/minus-icon.png'>
             <p data-minus='${movie.imdbID}'> remove from watchlist </p>
         </a>`
 
@@ -137,6 +138,8 @@ const getButton= (movie, plus) =>{ // intiate the button to a plus sign
    
         
 }
+
+
 
 const renderPlaceholder = () => {
     mainEl.innerHTML = `       
