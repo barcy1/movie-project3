@@ -120,17 +120,17 @@ const getHtml= function(movie,plusOrMinus){
 const getButton= (movie, plus) =>{ // intiate the button to a plus sign
     if(plus){        
          return(
-            `<div  class='containerr'>
+            `<a  class='containerr'>
                 <img data-plus='${movie.imdbID}' src='./icons/plus-icon.png'>
                 <p data-plus='${movie.imdbID}'>add to watchlist </p>
-            </div>`
+            </a>`
         ) 
     }
     else{
-        return(`<div class='containerr' >
+        return(`<a class='containerr' >
             <img data-minus='${movie.imdbID}' src='./icons/minus-icon.png'>
             <p data-minus='${movie.imdbID}'> remove from watchlist </p>
-        </div>`
+        </a>`
 
         )
     }  
@@ -151,14 +151,15 @@ const renderWatchlistPlaceholder = () => {
     
         <div class="watchlist-placeholder">
             <div >Your watchlist is looking a little empty...</div>
-            <div class='containerr'>
-                <a href='index.html'>
+            <div >
+                <a href='index.html' class='containerr'>
                     <img src='./icons/plus-icon.png'> 
-                    <p class='more-movies'> Let search some movie to add! </p>                    
+                    <p > Let search some movie to add! </p>                    
                 </a>
             </div>
         </div>
     `
+    document.querySelector('body').classList.add('bg');
 }
 
 if(mainEl.id==='index' && !searched){
