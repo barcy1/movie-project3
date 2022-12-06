@@ -89,27 +89,28 @@ const setHtml= function(movies,plusOrMinus){
 const getHtml= function(movie,plusOrMinus){ 
     //console.log(movie.Title);   
       return(`<div class='movie-card-grid'>
-                <div class="movie-logo-container">
-                <img src="${movie.Poster}" alt="alti">
-                </div>
-                <div class="card-details">
-                    <div class="card-title">
-                        <h2>${movie.Title}</h2>
-                        <img src="./icons/star-icon.png" alt="icon">
-                        <p>${movie.imdbRating}</p>
+                    <div class="movie-logo-container">
+                    <img src="${movie.Poster}" alt="alti">
                     </div>
-                    <div class="movie-details">
-                        <div class="par"> <p>${movie.Runtime}</p></div>
-                        <div class=" par1"><p> ${movie.Genre}</p></div>
-                        ${getButton(movie, plusOrMinus)}
-                    </div>
+                    <div class="card-details">
+                        <div class="card-title">
+                            <h2>${movie.Title}</h2>
+                            <img src="./icons/star-icon.png" alt="icon">
+                            <p>${movie.imdbRating}</p>
+                        </div>
+                        <div class="movie-details">
+                            <div class="par"> <p>${movie.Runtime}</p></div>
+                            <div class=" par1"><p> ${movie.Genre}</p></div>
+                            ${getButton(movie, plusOrMinus)}
+                        </div>
+                        <div class="discription-container">
+                            <p>${movie.Plot} </p>
+                        </div>
                        
-                    <div class="discription-container">
-                        <p>${movie.Plot} </p>
+                    
                     </div>
                 </div>
-                </div>
-            </div>
+            
                 <hr /> 
         
         `
@@ -150,11 +151,12 @@ const renderWatchlistPlaceholder = () => {
     
         <div class="watchlist-placeholder">
             <div >Your watchlist is looking a little empty...</div>
-            <a href='index.html'><div class='containerr'>
-                <img src='./icons/plus-icon.png'> 
-                <p> Let search some movie to add! </p>
-                </div>
-            </a>
+            <div class='containerr'>
+                <a href='index.html'>
+                    <img src='./icons/plus-icon.png'> 
+                    <p class='more-movies'> Let search some movie to add! </p>                    
+                </a>
+            </div>
         </div>
     `
 }
