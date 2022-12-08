@@ -202,10 +202,10 @@ const renderWatchlistPlaceholder = () => {
     mainEl.innerHTML = `
     
         <div class="watchlist-placeholder">
-            <div >Your watchlist is looking a little empty...</div>
+            <div class='check' >Your watchlist is looking a little empty...</div>
             <a class='containerr' href='index.html'>
                 <img src='./icons/plus-icon.png'> 
-                <p> Let search some movie to add! </p>
+                <p> Lets search some movie to add! </p>
                 
             </a>
         </div>

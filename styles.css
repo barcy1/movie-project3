@@ -13,10 +13,10 @@
     --transition: all 400ms ease;
 }
 body{
-    font-family: 'Poppins', sans-serif;
-    
+    font-family: 'Poppins', sans-serif;  
     
 }
+
 h1,h2,h3,h4{
     margin:0;
     padding:0;
@@ -55,7 +55,7 @@ h1,h2,h3,h4{
     border-top-left-radius:5px;
     padding:10px;
     outline: 0;;
-}
+}mainEl
 
 .submit-btn{   
     border:1px solid grey;
@@ -71,6 +71,10 @@ h1,h2,h3,h4{
     font-weight:500;
     margin-right:20px;
 }
+
+
+
+
 
 
 /*movie card styling*/
@@ -89,6 +93,7 @@ h1,h2,h3,h4{
 .movie-logo-container > img{
     width:100%;
     height:100%;
+    margin-top:0;
 }
 .card-details{
     display: flex;
@@ -124,6 +129,8 @@ a >img{
     align-items: center;
     justify-items: center;
     margin-left:20px;
+    text-decoration: none;
+   
     
 }
 .par1{
@@ -139,12 +146,23 @@ a >img{
     line-height: 1.5em;
     color: #787878;
     font-weight: 700;
-    
+        
 }
+.watchlist-placeholder >div{
+    font-size:30px;
+    text-align: center;
+    color:rgb(249, 93, 65);
+}
+
 
 .containerr :hover{
     cursor: pointer;
     
+}
+.containerr >img{
+    height:15px;
+    width:15px;
+    margin-right:10px;
 }
 .watch-list-icon > p{
     margin-left:0;
