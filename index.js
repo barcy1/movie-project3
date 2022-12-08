@@ -1,3 +1,5 @@
+
+
 const mainEl= document.querySelector('main');
 const searchInput=document.querySelector('#search-input');
 const searchBtn=document.querySelector('#search-btn');
@@ -76,8 +78,9 @@ document.addEventListener('click',(event) =>{
                         // that answer the condition- meaning I keep all the items wich their imdbID is not the imdbID of the items with 
                         // minus. so each movie imdbId that have dataset of minus will be throwen from the arrayl
         localStorage.setItem('watchlist', JSON.stringify(watchList)); // saving the new filtered array to localStorage.
-        if(mainEl.id==='watch-list.html'){
+        if(mainEl.id==='watchlist'){
             if(watchList.length >0){
+                mainEl.innerHTML=``;
                 setHtml(watchList, false); // if the watchList array is not empty call the setHtml function and pass it the watchList array and
                                             // the boolean value of false- so its display only the dataset minus item.
             }
@@ -98,7 +101,7 @@ document.addEventListener('click',(event) =>{
 //functions:
 
 const startSearch= async function(){
-
+    watchList=JSON.parse(localStorage.getItem('watchlist') || '[]');
     console.log('hi there');
     const res=await fetch(`http://www.omdbapi.com/?s=${searchInput.value}&apikey=39fdc95`);
     const moviesByName= await res.json();
@@ -111,7 +114,18 @@ const startSearch= async function(){
             const moviesById= await response.json();
             movies.push(moviesById);           
         }       
-        if(movies.length>0){        
+        if(movies.length>0){
+            if(watchList.length>0){
+                for(let watchlistMovie of watchList){
+                    for(let i=0; i<movies.length;i++){
+                        if(watchlistMovie.imdbID===movies[i].imdbID){
+                            movies.splice(i,1);                            
+                        }
+                    }
+                }
+            }
+            mainEl.innerHTML=``;
+            setHtml(watchList , false);                
             setHtml(movies,true); // true will be passed as pkusOrMinus to see what kind of button to display!
         }
     } 
@@ -119,8 +133,8 @@ const startSearch= async function(){
 
 
 const setHtml= function(movies,plusOrMinus){
-
-     mainEl.innerHTML= ` ${movies.map(movie => getHtml(movie,plusOrMinus)).join('')} `     
+    
+     mainEl.innerHTML+= ` ${movies.map(movie => getHtml(movie,plusOrMinus)).join('')} `     
 
 
 }
